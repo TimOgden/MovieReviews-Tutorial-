@@ -33,3 +33,13 @@ model.add(keras.layers.GlobalAveragePooling1D())
 model.add(keras.layers.Dense(16, activation=tf.nn.relu))
 model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
 model.summary()
+
+model.compile(optimizer=tf.train.AdamOptimizer(), loss='binary_crossentropy', metrics=['accuracy'])
+
+x_val = train_data[:10000]
+x_partial_train = train_data[10000:]
+
+y_val = train_labels[:10000]
+y_partial_train = train_data[10000:]
+
+history = model.fit(x_partial_train, y_partial_train, epochs=40, batch_size=512, validation_data=(x_val, y_val), verbose=1)
