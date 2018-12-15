@@ -4,7 +4,7 @@ from tensorflow import keras
 import numpy as np
 
 imdb = keras.datasets.imdb
-(train_data, train_labels), (test_data, test_labels) = imdb.loadData(numWords=10000)
+(train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
 
 # A dictionary mapping words to an integer index
 word_index = imdb.get_word_index()
