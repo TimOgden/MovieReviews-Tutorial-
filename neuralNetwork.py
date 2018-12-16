@@ -43,3 +43,8 @@ y_val = train_labels[:10000]
 y_partial_train = train_data[10000:]
 
 history = model.fit(x_partial_train, y_partial_train, epochs=40, batch_size=512, validation_data=(x_val, y_val), verbose=1)
+
+test_loss, test_acc = model.evaluate(test_data, test_labels)
+
+print("Loss: {}".format(test_loss))
+print("Accuracy: {}".format(test_acc))
